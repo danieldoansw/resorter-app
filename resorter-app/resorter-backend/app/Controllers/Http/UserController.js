@@ -1,12 +1,12 @@
 'use strict'
 
-const User = use('app/Models/User')
+const User = use('App/Models/User')
 
 class UserController {
     async login({ request, response, auth }) {
         const { email, password } = request.only(['email', 'password'])
 
-        const token = await auth.attemp(email, password)
+        const token = await auth.attempt(email, password)
 
         return response.json(token)
     }
